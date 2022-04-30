@@ -19,9 +19,6 @@
 enum class CardType {Battle, Buff, Heal, Treasure}; // The type of the Card
 
 class Card {
-    CardType m_effect;
-    CardStats m_stats;
-
 public:
     /*
      * C'tor of Card class
@@ -31,16 +28,18 @@ public:
      * @return
      *      A new instance of Card.
     */
-    Card(const CardType type, const CardStats& stats);
+    Card(CardType type, const CardStats& stats);
+
 
     /*
-     * Handling the player's encounter with the card:
+     * Handling the player's applyEncounter with the card:
      *
      * @param player - The player.
      * @return
      *      void
     */
-    void encounter(Player& player) const;
+    void applyEncounter(Player& player) const;
+
 
     /*
      * Prints the card info:
@@ -48,15 +47,26 @@ public:
      * @return
      *      void
     */
-    void printCardInfo() const;
+    void printInfo() const;
+
 
     /*
-     * Here we are explicitly telling the compiler to use the default "big 3".
+     * C'tor to the "default card" - Treasure card that gives 0 coins
     */
-    Card() = default;
+    Card(): m_effect(CardType::Treasure), m_stats() {}
+
+
+    /*
+     * Here we are explicitly telling the compiler to use the default methods
+    */
     Card(const Card&) = default;
     ~Card() = default;
     Card& operator=(const Card& other) = default;
+
+
+private:
+    CardType m_effect;
+    CardStats m_stats;
 
 };
 

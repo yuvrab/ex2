@@ -15,9 +15,7 @@ bool testMtmchkin(){
     cards[3] = Card(CardType::Heal, stats);
     Mtmchkin game("Daniel", cards, 4);
     while(!game.isOver()){
-        game.drawCard();
-        game.printGameInfo();
-        game.encounter();
+        game.playNextCard();
     }
     if (game.getGameStatus()!=GameStatus::Win){
         return false;
@@ -31,13 +29,13 @@ bool testCard(){
     Card card1(CardType::Treasure, stats);
     Card card2(CardType::Buff, stats);
     Card card3(CardType::Battle, stats);
-    card3.printCardInfo();
+    card3.printInfo();
     Card card4(CardType::Heal, stats);
-    card1.encounter(player);
-    card2.encounter(player);
-    card3.encounter(player);
-    card4.encounter(player);
-    player.printPlayersDetails();
+    card1.applyEncounter(player);
+    card2.applyEncounter(player);
+    card3.applyEncounter(player);
+    card4.applyEncounter(player);
+    player.printInfo();
     return true;
 }
 
@@ -45,7 +43,7 @@ bool testPlayer(){
     Player player1("Efrat",150,2);  //Efrat has 150 max HP and 2 points of force.
     Player player2("Gandalf",300);  //Gandalf has 300 max HP and 5 points of force.
     Player player3("Daniel"); //Gandalf has 100 max HP and 5 points of force.
-    player2.printPlayersDetails();
+    player2.printInfo();
     Player player4 = player3;
     player2.addCoins(10);
     if (player1.pay(10)){
@@ -55,7 +53,7 @@ bool testPlayer(){
     player4.damage(10);
     player2.levelUp();
     player2.buff(1);
-    player2.printPlayersDetails();
+    player2.printInfo();
     if (player2.getAttackStrength() != 2 + 6 ){
         return false;
     }
@@ -65,8 +63,8 @@ bool testPlayer(){
     if (player2.getLevel() != 2){
         return false;
     }
-    player1.printPlayersDetails();
-    player2.printPlayersDetails();
+    player1.printInfo();
+    player2.printInfo();
     return true;
 }
 

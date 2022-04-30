@@ -5,28 +5,24 @@
 #ifndef EX2_UTILITIES_H
 #define EX2_UTILITIES_H
 
-#include <iostream>
+
 
 
 /*
  * Numeric stats of a card.
  */
 struct CardStats{
-    int m_force;  // The force of the monster
-    int m_loot; // The profit you get when winning a battle or when getting a "Treasure" card
-    int m_hpLossOnDefeat; // The amount of hp you lose when losing the battle
+    int force;  // The force of the monster
+    int loot; // The profit you get when winning a battle or when getting a "Treasure" card
+    int hpLossOnDefeat; // The amount of hp you lose when losing the battle
 
-    int m_cost; // The cost of a "Buff/Heal" card
-    int m_heal; // The amount of HP you get when buying a "HEAL" card
-    int m_buff; // The amount of force you get when buying a "BUFF" card
+    int cost; // The cost of a "Buff/Heal" card
+    int heal; // The amount of HP you get when buying a "HEAL" card
+    int buff; // The amount of force you get when buying a "BUFF" card
 
-    /*
-     * Explicitly declaring the default C'tor.
-    */
-    CardStats() = default;
 
     /*
-     * Another C'tor of CardStats:
+     *C'tor of CardStats:
      *
      * @param force - The force of the card (monster).
      * @param hpLoss - HP loss when losing the battle.
@@ -37,15 +33,16 @@ struct CardStats{
      * @return
      *      New instance of CardStats.
     */
-    CardStats(int force, int hpLoss, int cost, int heal, int buff, int loot) {
-        this->m_force = force;
-        this->m_hpLossOnDefeat = hpLoss;
-        this->m_cost = cost;
-        this->m_heal = heal;
-        this->m_buff = buff;
-        this->m_loot = loot;
+    explicit CardStats(int force = 0, int hpLoss = 0, int cost = 0, int heal = 0, int buff = 0, int loot = 0) {
+        this->force = force;
+        this->hpLossOnDefeat = hpLoss;
+        this->cost = cost;
+        this->heal = heal;
+        this->buff = buff;
+        this->loot = loot;
     }
 };
+
 
 /*
  * Prints info of a Battle card:
@@ -96,6 +93,7 @@ void printHealCardInfo(const CardStats& card);
  */
 void printTreasureCardInfo(const CardStats& card);
 
+
 /*
  * Prints the details of the player:
  *
@@ -107,7 +105,7 @@ void printTreasureCardInfo(const CardStats& card);
  * @return
  *      void
  */
-void printPlayerDetails(const char* name, const int level, const int force, const int hp, const int coins);
+void printPlayerInfo(const char* name, int level, int force, int hp, int coins);
 
 
 

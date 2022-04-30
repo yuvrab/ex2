@@ -9,17 +9,13 @@
 
 /*
  * GameStatus:
- * RoundStart - The start of a round. Happens at the beginning of a game and after an encounter.
- * CardDrawn - A card was drawn, happens before the encounter.
+ * MidGame - The game is still active and the player continues to encounter cards.
  * Win - The player reached level 10.
  * Loss - The player's HP is 0.
 */
-enum class GameStatus{Win, Loss, RoundStart, CardDrawn};
+enum class GameStatus{Win, Loss, MidGame};
 
 class Mtmchkin {
-private:
-    //TODO: complete the Mtmchkin class.
-
 public:
 
     /*
@@ -35,21 +31,12 @@ public:
 
 
     /*
-     * Draw the next Card from the deck:
+     * Play the next Card - according to the instruction in the exercise document
      *
      * @return
      *      void
     */
-    void drawCard();
-
-
-    /*
-     * Encounter the current card and check if the game ended:
-     *
-     * @return
-     *      void
-    */
-    void encounter();
+    void playNextCard();
 
 
     /*
@@ -70,15 +57,8 @@ public:
      */
     GameStatus getGameStatus() const;
 
-
-    /*
-     * Print the info of the game.
-     * First, print the player's details. Then, print current card info.
-     *
-     * @return
-     *      void
-     */
-    void printGameInfo() const;
+private:
+    //TODO: complete the Mtmchkin class.
 
 };
 
