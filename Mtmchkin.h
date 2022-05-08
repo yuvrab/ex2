@@ -57,6 +57,8 @@ public:
      */
     GameStatus getGameStatus() const;
 
+    //TODO: complete the Mtmchkin class.
+
 private:
     //TODO: complete the Mtmchkin class.
 
