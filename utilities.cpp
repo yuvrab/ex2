@@ -11,7 +11,8 @@ using std::endl;
 const char* LINE_DIVIDER  = "------------------------";
 
 
-void printBattleCardInfo(const CardStats& card){
+void printBattleCardInfo(const CardStats& card)
+{
     cout << "Card drawn:" << endl;
     cout << "Type: Battle" << endl;
     cout << "Force: " << card.force << endl;
@@ -20,7 +21,8 @@ void printBattleCardInfo(const CardStats& card){
     cout << LINE_DIVIDER << endl;
 }
 
-void printBattleResult(bool win){
+void printBattleResult(bool win)
+{
     if (win){
         cout << "The player defeated the monster and won the loot! Hooray!" << endl;
         cout << LINE_DIVIDER << endl;
@@ -30,7 +32,8 @@ void printBattleResult(bool win){
     }
 }
 
-void printBuffCardInfo(const CardStats& card){
+void printBuffCardInfo(const CardStats& card)
+{
     cout << "Card drawn:" << endl;
     cout << "Type: Buff" << endl;
     cout << "Buff points: " << card.buff << endl;
@@ -38,7 +41,8 @@ void printBuffCardInfo(const CardStats& card){
     cout << LINE_DIVIDER << endl;
 }
 
-void printHealCardInfo(const CardStats& card){
+void printHealCardInfo(const CardStats& card)
+{
     cout << "Card drawn:" << endl;
     cout << "Type: Heal" << endl;
     cout << "Heal points: " << card.heal << endl;
@@ -46,14 +50,16 @@ void printHealCardInfo(const CardStats& card){
     cout << LINE_DIVIDER << endl;
 }
 
-void printTreasureCardInfo(const CardStats& card){
+void printTreasureCardInfo(const CardStats& card)
+{
     cout << "Card drawn:" << endl;
     cout << "Type: Treasure" << endl;
     cout << "Coins: " << card.loot << endl;
     cout << LINE_DIVIDER << endl;
 }
 
-void printPlayerInfo(const char* name, const int level, const int force, const int hp, const int coins){
+void printPlayerInfo(const char* name, const int level, const int force, const int hp, const int coins)
+{
     cout << "Player Details:" << endl;
     cout << "Name: " << name << endl;
     cout << "Level: " << level << endl;

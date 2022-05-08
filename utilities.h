@@ -33,7 +33,8 @@ struct CardStats{
      * @return
      *      New instance of CardStats.
     */
-    explicit CardStats(int force = 0, int hpLoss = 0, int cost = 0, int heal = 0, int buff = 0, int loot = 0) {
+    explicit CardStats(int force = 0, int hpLoss = 0, int cost = 0, int heal = 0, int buff = 0, int loot = 0)
+    {
         this->force = force;
         this->hpLossOnDefeat = hpLoss;
         this->cost = cost;

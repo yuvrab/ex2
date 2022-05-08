@@ -6,7 +6,8 @@
 #include "Card.h"
 #include "Mtmchkin.h"
 
-bool testMtmchkin(){
+bool testMtmchkin()
+{
     Card cards[4];
     CardStats stats(3, 40, 10, 30, 1, 20);
     cards[0] = Card(CardType::Treasure, stats);
@@ -23,7 +24,8 @@ bool testMtmchkin(){
     return true;
 }
 
-bool testCard(){
+bool testCard()
+{
     Player player("Efrat",150,2);  //Efrat has 150 max HP and 2 points of force.
     CardStats stats(3, 40, 10, 30, 1, 20);
     Card card1(CardType::Treasure, stats);
@@ -39,7 +41,8 @@ bool testCard(){
     return true;
 }
 
-bool testPlayer(){
+bool testPlayer()
+{
     Player player1("Efrat",150,2);  //Efrat has 150 max HP and 2 points of force.
     Player player2("Gandalf",300);  //Gandalf has 300 max HP and 5 points of force.
     Player player3("Daniel"); //Gandalf has 100 max HP and 5 points of force.
@@ -68,7 +71,8 @@ bool testPlayer(){
     return true;
 }
 
-void run_test(std::function<bool()> test, std::string test_name){
+void run_test(std::function<bool()> test, std::string test_name)
+{
     if(!test()){
         std::cout<<test_name<<" FAILED."<<std::endl;
         std::cout << std::endl;
@@ -79,7 +83,8 @@ void run_test(std::function<bool()> test, std::string test_name){
 
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     const int NUMBER_OF_TESTS = 3;
     std::function<bool()> tests[NUMBER_OF_TESTS] = {
         testPlayer,
